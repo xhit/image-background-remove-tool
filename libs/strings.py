@@ -25,6 +25,7 @@ NAME = "Image Background Remove Tool"
 MODELS_NAMES = ["u2net", "basnet", "u2netp", "deeplabv3"]
 PREPROCESS_METHODS = ["None", "bbmd-maskrcnn", "bbd-fastrcnn"]
 POSTPROCESS_METHODS = ["fba", "rtb-bnb", "rtb-bnb2", "No"]
+IMAGES_OUTPUT_SIZES = ["original", "preview", "medium", "hd"]
 DESCRIPTION = "A tool to remove a background from image using Neural Networks"
 LICENSE = "Apache License 2.0"
 SUPPORTED_EXTENSIONS = ['BMP', 'EPS', 'GIF', 'ICNS', 'ICO', 'IM', 'JPEG', 'JPG', 'JP2', 'MSP', 'PCX', 'PNG', 'PPM', 'SGI',
@@ -47,7 +48,9 @@ ARGS = {
     "-post": ["<postprocessing_method>", "Postprocessing method. Optional. Can be {} . "
                                          "`{}` is better to use.".format(' or '.join(POSTPROCESS_METHODS),
                                                                          POSTPROCESS_METHODS[0])],
-    "--recursive": ["", "Enables recursive search for images in a folder"]
+    "--recursive": ["", "Enables recursive search for images in a folder"],
+    "-crop": ["<crop_image>", "Return image cropped. Optional."],
+    "-size": ["<image_size>", "Size of image. Optional. Can be {}. Default is `{}`.".format(' or '.join(IMAGES_OUTPUT_SIZES), IMAGES_OUTPUT_SIZES[0])]
 }
 ARGS_HELP = """{}
 {}
